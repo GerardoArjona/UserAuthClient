@@ -29,6 +29,18 @@ body {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
+.nav-item {
+    margin-right: 1rem;
+    font-weight: bold;
+    font-size: 22px;
+    color: rgb(51, 0, 51);
+}
+
+.nav-link.active {
+    color: rgb(51, 0, 51);
+    border-bottom: solid 4px rgb(51, 0, 51);;
+}
+
 .social-icons {
     width: 60%;
     display: flex;
@@ -36,10 +48,10 @@ body {
     margin-left: 15%;
   }
   
-  .social-icons i {
+.social-icons i {
     color: rgb(51, 0, 51);
     font-size: 26px;
-  }
+}
 
 .welcome-title{
     font-size: 5rem;
@@ -47,4 +59,46 @@ body {
 
 .description-text{
     font-size: 3rem;
+}
+
+.users-cels-header{
+    text-align: center;
+    background-color: rgb(51, 0, 51);
+	color: #fff;
+	border: solid 1px rgb(51, 0, 51);
+	border-width: 1px;
+    font-size: 1.25rem;
+}
+
+.user-cels{
+    text-align: center;
+    border: solid 1px rgb(51, 0, 51);
+    border-width: 1px;
+    font-size: 1rem;
+}
+
+.user-cels a{
+    color: rgb(51, 0, 51);
+}
+
+.user-cels a:hover{
+    text-decoration: none;
+}
+
+.user-name-cel:hover{
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 750px) {
+	.mobile-user-name{
+        background-color: rgb(51, 0, 51);
+        color: #fff;
+    }
+
+    .user-cels a{
+        color: #fff;
+    }
+
 }

@@ -6,6 +6,7 @@ import Layout from './components/layout';
 
 import Home from './components/home';
 import List from './components/user/list';
+import Profile from './components/user/profile';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Switch>
           <Route path="/" component={Home} exact/>,
           <Route path="/users" component={List}/>,
+          <Route path="/profile/:id" component={Profile}/>,
         </Switch>
       </Layout>
     </Router>
