@@ -3,16 +3,18 @@ import React from 'react';
 function Footer() {
 
 	return (
-		<footer className="section footer-classic context-dark bg-dark py-3" >
+		<footer className="section footer-classic context-dark py-3" >
 			<div className="container-fluid">
 				<div className="row justify-content-between">
-					<div id="info-footer" className="col-md-2 mt-3 col-sm-10">
-						<h2 id="info-footer-title">Empresa</h2>
-						<ul className="map-site fa-ul">
-							<li><span className="fa-li"><i className="fas fa-chevron-right"></i></span>
-								Nosotros
-							</li>
-						</ul>
+					<div id="info-footer" className="col-lg-6 col-md-6 col-sm-12 col-12">
+						<h2 id="info-footer-title">UserAPI</h2>
+					</div>
+					<div className="col-lg-6 col-md-6 col-sm-12 col-12">
+						<div className="social-icons desktop-icons-margin">
+							<a target="_blank" rel="noopener noreferrer" href="https://facebook.com/isolarmarket/"><i class="fab fa-github"></i></a>
+							<a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/isolarmarket"><i className="fab fa-linkedin"></i></a>
+							<a target="_blank" rel="noopener noreferrer" href="https://instagram.com"><i className="fab fa-instagram"></i></a>
+						</div>
 					</div>
 				</div>
 			</div>

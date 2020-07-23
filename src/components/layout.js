@@ -5,7 +5,7 @@ import Nav from './nav';
 import Footer from './footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'animate.css/animate.min.css'
-//import "./layout.css"
+import "./layout.css"
 
 function Layout({ children }){
 

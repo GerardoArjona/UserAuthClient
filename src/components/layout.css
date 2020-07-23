@@ -1,0 +1,50 @@
+body {
+  font-family: "Trebuchet MS", Helvetica, sans-serif !important;
+}
+
+#logo{
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+.main-section{
+    margin-top: 65px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin-bottom: 30px;
+}
+
+.navbar, .footer-classic{
+    background-color: rgb(255, 154, 255);
+    color: rgb(51, 0, 51);
+}
+
+.navbar-dark .navbar-toggler{
+    color: rgb(51, 0, 51);
+    border-color: rgb(51, 0, 51);
+    border: 1.5px solid;
+}
+
+.navbar-dark .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.social-icons {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 15%;
+  }
+  
+  .social-icons i {
+    color: rgb(51, 0, 51);
+    font-size: 26px;
+  }
+
+.welcome-title{
+    font-size: 5rem;
+}
+
+.description-text{
+    font-size: 3rem;
+}
