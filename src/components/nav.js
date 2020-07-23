@@ -21,6 +21,7 @@ function Nav() {
 				<div className={ toggle ? "collapse navbar-collapse animate fadeInDown show " : "collapse navbar-collapse"} id="nav">
 					<ul className="navbar-nav ml-auto">
 						<NavLink to={'/users'} className="nav-link" activeClassName="active" onClick={() => setToggle(false)}><li className="nav-item "><i class="fas fa-users"></i> Users</li></NavLink>
+						<NavLink to={'/signup'} className="nav-link" activeClassName="active" onClick={() => setToggle(false)}><li className="nav-item "><i class="fas fa-user-plus"></i> Sign Up</li></NavLink>
 					</ul>
 				</div>
 			</nav>

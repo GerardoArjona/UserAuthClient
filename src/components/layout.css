@@ -91,6 +91,23 @@ body {
     transform: scale(1.1);
 }
 
+.signup-text{
+    color: rgb(51, 0, 51);
+}
+
+.btn-save{
+    background-color: rgb(51, 0, 51);
+    color: #fff;
+}
+
+.btn-save:hover{
+    background-color: rgb(255, 154, 255);
+    color: rgb(51, 0, 51);
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
 @media screen and (max-width: 750px) {
 	.mobile-user-name{
         background-color: rgb(51, 0, 51);
