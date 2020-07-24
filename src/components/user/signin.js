@@ -25,7 +25,8 @@ function Signin() {
         setUserData(data)
     }
 
-    const login = () => {
+    const login = (e) => {
+        e.preventDefault()
         console.log("saving")
         console.log(userData)
         axios.post(
@@ -73,35 +74,37 @@ function Signin() {
         <React.Fragment>
             <ReactNotification />
             <section className="container main-section">
-            <div className="row justify-content-center mt-2">
-                <div className="col-md-8 col-lg-8 col-sm-10 col-10 text-center">
-                    <div className="form-group text-center">
-                        <label htmlFor="" className="signup-text"><i className="fas fa-at"></i> Email:</label>
-                        <input type="email" className="form-control text-center signup-text"
-                            name="email"
-                            value={userData.email || ""}
-                            onChange={e => handleUpdate(e)}
-                        />
+            <form onSubmit={e =>login(e)}>
+                <div className="row justify-content-center mt-2">
+                    <div className="col-md-8 col-lg-8 col-sm-10 col-10 text-center">
+                        <div className="form-group text-center">
+                            <label htmlFor="" className="signup-text"><i className="fas fa-at"></i> Email:</label>
+                            <input type="email" className="form-control text-center signup-text"
+                                name="email"
+                                value={userData.email || ""}
+                                onChange={e => handleUpdate(e)}
+                            />
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className="row justify-content-center mt-2">
-                <div className="col-md-8 col-lg-8 col-sm-10 col-10 text-center">
-                    <div className="form-group text-center">
-                        <label htmlFor="" className="signup-text"><i className="fas fa-unlock"></i> Password:</label>
-                        <input type="password" className="form-control text-center signup-text"
-                            name="password"
-                            value={userData.password || ""}
-                            onChange={e => handleUpdate(e)}
-                        />
+                <div className="row justify-content-center mt-2">
+                    <div className="col-md-8 col-lg-8 col-sm-10 col-10 text-center">
+                        <div className="form-group text-center">
+                            <label htmlFor="" className="signup-text"><i className="fas fa-unlock"></i> Password:</label>
+                            <input type="password" className="form-control text-center signup-text"
+                                name="password"
+                                value={userData.password || ""}
+                                onChange={e => handleUpdate(e)}
+                            />
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className="row justify-content-center mt-2">
-                <div className="col-md-8 col-lg-8 col-sm-10 col-10 text-center">
-                    <button className="btn btn-save" type="button" onClick={login}><i className="fas fa-sign-in-alt"></i> Sign In</button>
+                <div className="row justify-content-center mt-2">
+                    <div className="col-md-8 col-lg-8 col-sm-10 col-10 text-center">
+                        <button className="btn btn-save" type="submit"><i className="fas fa-sign-in-alt"></i> Sign In</button>
+                    </div>
                 </div>
-            </div>
+            </form>
         </section>
         </React.Fragment>
     );
