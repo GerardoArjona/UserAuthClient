@@ -41,7 +41,7 @@ function Profile(props) {
             })
         };
         fetchData();
-    }, []);
+    }, [props]);
     
     const closeModal = () => setDeleting(false)
 

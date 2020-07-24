@@ -41,28 +41,28 @@ function Signin() {
                     animationIn: ["animated", "fadeIn"],
                     animationOut: ["animated", "fadeOut"],
                     dismiss: {
-                        duration: 1000,
+                        duration: 800,
                         onScreen: true
                     }
                 });
                 
                 setTimeout(function(){ 
                     history.push(`/profile/${getUser()._id}`)
-                }, 1000); 
+                }, 800); 
                 
             }
         ).catch(e => {
             console.log(e)
             store.addNotification({
                 title: "Sorry!",
-                message: "We were not able to sign you in...",
+                message: "Wrong email or password...",
                 type: "danger",
                 insert: "top",
                 container: "top-right",
                 animationIn: ["animated", "fadeIn"],
                 animationOut: ["animated", "fadeOut"],
                 dismiss: {
-                duration: 3000,
+                duration: 1500,
                 onScreen: true
                 }
             });
