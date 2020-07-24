@@ -41,14 +41,14 @@ function Signin() {
                     animationIn: ["animated", "fadeIn"],
                     animationOut: ["animated", "fadeOut"],
                     dismiss: {
-                        duration: 800,
+                        duration: 1000,
                         onScreen: true
                     }
                 });
                 
                 setTimeout(function(){ 
                     history.push(`/profile/${getUser()._id}`)
-                }, 800); 
+                }, 1000); 
                 
             }
         ).catch(e => {

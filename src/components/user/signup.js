@@ -39,13 +39,13 @@ function Signup() {
                     animationIn: ["animated", "fadeIn"],
                     animationOut: ["animated", "fadeOut"],
                     dismiss: {
-                        duration: 3000,
+                        duration: 1000,
                         onScreen: true
                     }
                 });
                 setTimeout(function(){ 
                     history.push("/signin")
-                }, 3000); 
+                }, 1000); 
                 
             }
         ).catch(e => {
@@ -59,7 +59,7 @@ function Signup() {
                 animationIn: ["animated", "fadeIn"],
                 animationOut: ["animated", "fadeOut"],
                 dismiss: {
-                duration: 3000,
+                duration: 1000,
                 onScreen: true
                 }
             });
