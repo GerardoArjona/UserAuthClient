@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import logo from '../images/logo.png'
 
-import { Link, NavLink, useHistory} from 'react-router-dom';
+import { Link, NavLink, useHistory, withRouter} from 'react-router-dom';
 
 import { isLoggedIn, getUser, logout } from '../services/auth'
 
@@ -28,17 +28,18 @@ function Nav() {
 				</button>
 				<div className={ toggle ? "collapse navbar-collapse animate fadeInDown show " : "collapse navbar-collapse"} id="nav">
 					<ul className="navbar-nav ml-auto">
-						<NavLink to={'/users'} className="nav-link" activeClassName="active" onClick={() => setToggle(false)}><li className="nav-item "><i className="fas fa-users"></i> Users</li></NavLink>
 						{
 							isLoggedIn() ?
 								<React.Fragment>
 									<NavLink to={`/profile/${getUser()._id}`} className="nav-link" activeClassName="active" onClick={() => setToggle(false)}><li className="nav-item "><i className="fas fa-user"></i> Profile</li></NavLink>
+									<NavLink to={'/users'} className="nav-link" activeClassName="active" onClick={() => setToggle(false)}><li className="nav-item "><i className="fas fa-users"></i> Users</li></NavLink>
 									<a href="/#" className="nav-link" onClick={() => logout(backToHome)}><li className="nav-item "><i className="fas fa-user-plus"></i> Log Out</li></a>
 								</React.Fragment>
 								:
 								<React.Fragment>
-									<NavLink to={'/signin'} className="nav-link" activeClassName="active" onClick={() => setToggle(false)}><li className="nav-item "><i className="fas fa-sign-in-alt"></i> Sign In</li></NavLink>
+									<NavLink to={'/users'} className="nav-link" activeClassName="active" onClick={() => setToggle(false)}><li className="nav-item "><i className="fas fa-users"></i> Users</li></NavLink>
 									<NavLink to={'/signup'} className="nav-link" activeClassName="active" onClick={() => setToggle(false)}><li className="nav-item "><i className="fas fa-user-plus"></i> Sign Up</li></NavLink>
+									<NavLink to={'/signin'} className="nav-link" activeClassName="active" onClick={() => setToggle(false)}><li className="nav-item "><i className="fas fa-sign-in-alt"></i> Sign In</li></NavLink>
 								</React.Fragment>
 						}
 					</ul>
@@ -51,4 +52,4 @@ function Nav() {
 
 }
 
-export default Nav;
+export default withRouter(Nav);

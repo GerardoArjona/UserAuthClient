@@ -91,7 +91,7 @@ body {
     transform: scale(1.1);
 }
 
-.signup-text{
+.signup-text, .card-body{
     color: rgb(51, 0, 51);
 }
 
@@ -108,6 +108,49 @@ body {
     transform: scale(1.1);
 }
 
+.card{
+    border-color: rgb(51, 0, 51);
+}
+
+.card #logo{
+    width: 6rem;
+    height: 6rem;
+}
+
+.btn-delete{
+    background-color: rgb(51, 0, 51);
+    color: #fff;
+}
+
+.btn-delete:hover{
+    background-color: rgb(241, 64, 64);
+    color: rgb(51, 0, 51);
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.btn-yes{
+    background-color: rgb(51, 0, 51);
+    color: #fff;
+}
+
+.btn-yes:hover{
+    background-color: rgb(67, 200, 44);
+    color: rgb(51, 0, 51);
+}
+
+.delete-modal-header{
+    background-color: rgb(241, 64, 64);
+    color: rgb(51, 0, 51);
+}
+
+.modal-title, .modal-body{
+    font-weight: bold;
+    color: rgb(51, 0, 51);
+    font-size: 1.5rem;
+}
+
 @media screen and (max-width: 750px) {
 	.mobile-user-name{
         background-color: rgb(51, 0, 51);
@@ -116,6 +159,20 @@ body {
 
     .user-cels a{
         color: #fff;
+    }
+
+    .btn-delete{
+        background-color: rgb(241, 64, 64);
+        color: rgb(51, 0, 51);
+    }
+    
+    .btn-yes{
+        background-color: rgb(67, 200, 44);
+        color: rgb(51, 0, 51);
+    }
+
+    #edit-button{
+        margin-bottom: 3.5%;
     }
 
 }
