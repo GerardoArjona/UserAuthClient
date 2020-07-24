@@ -3,7 +3,7 @@ import logo from '../images/logo.png'
 
 import { Link, NavLink, useHistory} from 'react-router-dom';
 
-import { isLoggedIn, getUserTok, logout } from '../services/auth'
+import { isLoggedIn, getUser, logout } from '../services/auth'
 
 
 function Nav() {
@@ -32,7 +32,7 @@ function Nav() {
 						{
 							isLoggedIn() ?
 								<React.Fragment>
-									<NavLink to={`/profile/${getUserTok()}`} className="nav-link" activeClassName="active" onClick={() => setToggle(false)}><li className="nav-item "><i className="fas fa-user"></i> Profile</li></NavLink>
+									<NavLink to={`/profile/${getUser()._id}`} className="nav-link" activeClassName="active" onClick={() => setToggle(false)}><li className="nav-item "><i className="fas fa-user"></i> Profile</li></NavLink>
 									<a href="/#" className="nav-link" onClick={() => logout(backToHome)}><li className="nav-item "><i className="fas fa-user-plus"></i> Log Out</li></a>
 								</React.Fragment>
 								:
