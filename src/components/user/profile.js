@@ -17,6 +17,7 @@ function Profile(props) {
     const [user, setUser] = useState([]);
     const [isUser, setIsUser] = useState(false);
     const [deleting, setDeleting] = useState(false);
+    const [editing, setEditing] = useState(false);
 
     useEffect(() => {
         let tok = getUserTok()
@@ -46,6 +47,20 @@ function Profile(props) {
     const closeModal = () => setDeleting(false)
 
     const afterDelete = () => history.push(`/users`)
+
+
+    const handleUpdate = event => {
+
+        //console.log(event.target.name)
+        //console.log(event.target.value)
+    
+        const {name, value} = event.target
+        const data = {...user}
+        data[name] = value
+        //console.log(data)
+        setUser(data)
+    }
+
 
     const deleteUser = () => {
         let tok = getUserTok()
@@ -92,7 +107,54 @@ function Profile(props) {
                 }
             });
         })
-	}
+    }
+    
+    const save = (e) => {
+        e.preventDefault()
+        console.log("updating")
+        console.log(user)
+        let tok = getUserTok()
+        const header = {
+            headers:{
+                Authorization: `Bearer ${tok}` 
+            }
+        }
+        axios.put(
+            `${process.env.REACT_APP_API_URL}/users/${user._id}`, user, header
+        ).then( result =>{
+            setUser(result.data)
+                store.addNotification({
+                    title: "Update Successful!",
+                    message: "You've successfully updated your account",
+                    type: "success",
+                    insert: "top",
+                    container: "top-right",
+                    animationIn: ["animated", "fadeIn"],
+                    animationOut: ["animated", "fadeOut"],
+                    dismiss: {
+                        duration: 1000,
+                        onScreen: true
+                    }
+                });
+                setEditing(false)     
+            }
+        ).catch(e => {
+            console.log(e)
+            store.addNotification({
+                title: "Sorry!",
+                message: "We were not able to update your account...",
+                type: "danger",
+                insert: "top",
+                container: "top-right",
+                animationIn: ["animated", "fadeIn"],
+                animationOut: ["animated", "fadeOut"],
+                dismiss: {
+                duration: 1000,
+                onScreen: true
+                }
+            });
+        })
+    }
 
     return (
         <React.Fragment>
@@ -107,20 +169,78 @@ function Profile(props) {
                                 </div>
                             </div>
                             <div className="card-body">
-                                <h5 className="card-title">{user.name}</h5>
-                                <p className="card-text">{user.email}</p>
+                                {
+                                    editing ?
+                                        <React.Fragment>
+                                            <form onSubmit={e => save(e)}>
+                                                <div className="row justify-content-center mt-2">
+                                                    <div className="col-md-8 col-lg-8 col-sm-10 col-10 text-center">
+                                                        <div className="form-group text-center">
+                                                            <label htmlFor="" className="signup-text"><i className="fas fa-signature"></i> Name:</label>
+                                                            <input type="text" className="form-control text-center signup-text"
+                                                                name="name"
+                                                                value={user.name || ""}
+                                                                onChange={e => handleUpdate(e)}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="row justify-content-center mt-2">
+                                                    <div className="col-md-8 col-lg-8 col-sm-10 col-10 text-center">
+                                                        <div className="form-group text-center">
+                                                            <label htmlFor="" className="signup-text"><i className="fas fa-at"></i> Email:</label>
+                                                            <input type="email" className="form-control text-center signup-text"
+                                                                name="email"
+                                                                value={user.email || ""}
+                                                                onChange={e => handleUpdate(e)}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="row justify-content-center mt-2">
+                                                    <div className="col-md-8 col-lg-8 col-sm-10 col-10 text-center">
+                                                        <div className="form-group text-center">
+                                                            <label htmlFor="" className="signup-text"><i className="fas fa-unlock"></i> Password:</label>
+                                                            <input type="password" className="form-control text-center signup-text"
+                                                                name="password"
+                                                                value={user.password || ""}
+                                                                onChange={e => handleUpdate(e)}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="row justify-content-center mt-2">
+                                                    <div className="col-md-6 col-lg-6 col-sm-12 col-12 text-center">
+                                                        <button className="btn btn-delete" id="edit-button" type="button" onClick={()=> {setEditing(false)}}><i className="fas fa-edit"></i> Cancel</button>
+                                                    </div>
+                                                    <div className="col-md-6 col-lg-6 col-sm-12 col-12 text-center">
+                                                        <button className="btn btn-save" type="submit" ><i className="fas fa-user-plus"></i> Save</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </React.Fragment>
+                                    :
+                                        <React.Fragment>
+                                            <h5 className="card-title">{user.name}</h5>
+                                            <p className="card-text">{user.email}</p>
+                                        </React.Fragment>
+                                }
                                 {
                                     isUser ?
-                                        <React.Fragment>
-                                            <div className="row justify-content-center mt-2">
-                                                <div className="col-md-6 col-lg-6 col-sm-12 col-12 text-center">
-                                                    <button className="btn btn-save" id="edit-button" type="button" ><i className="fas fa-edit"></i> Edit</button>
+                                        editing ?
+                                            <React.Fragment>
+                                            </React.Fragment>
+                                        :
+                                            <React.Fragment>
+                                                <div className="row justify-content-center mt-2">
+                                                    <div className="col-md-6 col-lg-6 col-sm-12 col-12 text-center">
+                                                        <button className="btn btn-save" id="edit-button" type="button" onClick={()=> {setEditing(true)}}><i className="fas fa-edit"></i> Edit</button>
+                                                    </div>
+                                                    <div className="col-md-6 col-lg-6 col-sm-12 col-12 text-center">
+                                                        <button className="btn btn-delete" type="button" onClick={()=> {setDeleting(true)}}><i className="far fa-trash-alt"></i> Delete</button>
+                                                    </div>
                                                 </div>
-                                                <div className="col-md-6 col-lg-6 col-sm-12 col-12 text-center">
-                                                    <button className="btn btn-delete" type="button" onClick={()=> {setDeleting(true)}}><i className="far fa-trash-alt"></i> Delete</button>
-                                                </div>
-                                            </div>
-                                        </React.Fragment>
+                                            </React.Fragment>
                                     :
                                         <React.Fragment></React.Fragment>
                                 }
