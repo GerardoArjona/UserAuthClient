@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+//import { useHistory } from 'react-router-dom';
 import { getUserTok, isLoggedIn } from '../../services/auth'
 
-import ReactNotification, {store} from 'react-notifications-component'
-import 'react-notifications-component/dist/theme.css'
+// import ReactNotification, {store} from 'react-notifications-component'
+// import 'react-notifications-component/dist/theme.css'
 
 import '../../App.css';
 
 function Profile(props) {
 
-    let history = useHistory();
+    //let history = useHistory();
     const [user, setUser] = useState([]);
 
     useEffect(() => {
-        if(isLoggedIn()){
-            console.log(props.match.params)
+        // if(isLoggedIn()){
             let tok = getUserTok()
             const header = {
                 headers:{
@@ -35,9 +34,9 @@ function Profile(props) {
                 })
             };
             fetchData();
-        }else{
-            history.push(`/users`)
-        }
+        // }else{
+        //     history.push(`/users`)
+        // }
 	}, []);
 
     return (

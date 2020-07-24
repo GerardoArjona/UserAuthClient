@@ -11,7 +11,7 @@ function Footer() {
 					</div>
 					<div className="col-lg-6 col-md-6 col-sm-12 col-12">
 						<div className="social-icons desktop-icons-margin">
-							<a target="_blank" rel="noopener noreferrer" href="https://github.com/GerardoArjona"><i class="fab fa-github"></i></a>
+							<a target="_blank" rel="noopener noreferrer" href="https://github.com/GerardoArjona"><i className="fab fa-github"></i></a>
 							<a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/gerardoarjona"><i className="fab fa-linkedin"></i></a>
 							<a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/jerryarjona_/"><i className="fab fa-instagram"></i></a>
 						</div>

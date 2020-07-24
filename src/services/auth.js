@@ -1,4 +1,3 @@
-import axios from 'axios';
 import payload from './payload';
 
 export const isBrowser = () => typeof window !== "undefined"

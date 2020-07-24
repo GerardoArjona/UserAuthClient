@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
@@ -73,10 +73,10 @@ function Signup() {
             <div className="row justify-content-center mt-2">
                 <div className="col-md-8 col-lg-8 col-sm-10 col-10 text-center">
                     <div className="form-group text-center">
-                        <label htmlFor="" className="signup-text"><i class="fas fa-signature"></i> Name:</label>
+                        <label htmlFor="" className="signup-text"><i className="fas fa-signature"></i> Name:</label>
                         <input type="text" className="form-control text-center signup-text"
                             name="name"
-                            value={userData.name}
+                            value={userData.name || ""}
                             onChange={e => handleUpdate(e)}
                         />
                     </div>
@@ -85,10 +85,10 @@ function Signup() {
             <div className="row justify-content-center mt-2">
                 <div className="col-md-8 col-lg-8 col-sm-10 col-10 text-center">
                     <div className="form-group text-center">
-                        <label htmlFor="" className="signup-text"><i class="fas fa-at"></i> Email:</label>
+                        <label htmlFor="" className="signup-text"><i className="fas fa-at"></i> Email:</label>
                         <input type="email" className="form-control text-center signup-text"
                             name="email"
-                            value={userData.email}
+                            value={userData.email || ""}
                             onChange={e => handleUpdate(e)}
                         />
                     </div>
@@ -97,10 +97,10 @@ function Signup() {
             <div className="row justify-content-center mt-2">
                 <div className="col-md-8 col-lg-8 col-sm-10 col-10 text-center">
                     <div className="form-group text-center">
-                        <label htmlFor="" className="signup-text"><i class="fas fa-unlock"></i> Password:</label>
+                        <label htmlFor="" className="signup-text"><i className="fas fa-unlock"></i> Password:</label>
                         <input type="password" className="form-control text-center signup-text"
                             name="password"
-                            value={userData.password}
+                            value={userData.password || ""}
                             onChange={e => handleUpdate(e)}
                         />
                     </div>
@@ -108,7 +108,7 @@ function Signup() {
             </div>
             <div className="row justify-content-center mt-2">
                 <div className="col-md-8 col-lg-8 col-sm-10 col-10 text-center">
-                    <button className="btn btn-save" type="button" onClick={save}><i class="fas fa-user-plus"></i> Sign Up</button>
+                    <button className="btn btn-save" type="button" onClick={save}><i className="fas fa-user-plus"></i> Sign Up</button>
                 </div>
             </div>
         </section>

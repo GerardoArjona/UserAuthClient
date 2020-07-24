@@ -21,7 +21,7 @@ function Home() {
         <div className="row justify-content-center">
           <div className="col-lg-10 col-md-10 col-sm-12 col-12 text-center mt-5">
             <h2>
-              Feel free to explore the site &#128521;
+              Feel free to explore the site <span role="img" aria-label="wink">&#128521;</span>
             </h2>
           </div> 
         </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import './App.css';
 
 import Layout from './components/layout';
@@ -10,6 +10,17 @@ import Profile from './components/user/profile';
 import Signup from './components/user/signup';
 import Signin from './components/user/signin';
 
+import { isLoggedIn } from './services/auth'
+
+const PrivateRoute = ({ component: Component, ...rest }) => (
+  <Route  {...rest} render={
+      (props) => (
+        isLoggedIn() ? <Component {...props} /> : <Redirect to="/signin" />
+      )
+  }>
+  </Route>
+)
+
 function App() {
   return (
     <Router>
@@ -19,7 +30,7 @@ function App() {
           <Route path="/users" component={List}/>,
           <Route path="/signup" component={Signup}/>,
           <Route path="/signin" component={Signin}/>,
-          <Route path="/profile/:id" component={Profile}/>,
+          <PrivateRoute path="/profile/:id" component={Profile}/>,
         </Switch>
       </Layout>
     </Router>

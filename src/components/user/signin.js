@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { setUser, getUser } from '../../services/auth'
@@ -76,10 +76,10 @@ function Signin() {
             <div className="row justify-content-center mt-2">
                 <div className="col-md-8 col-lg-8 col-sm-10 col-10 text-center">
                     <div className="form-group text-center">
-                        <label htmlFor="" className="signup-text"><i class="fas fa-at"></i> Email:</label>
+                        <label htmlFor="" className="signup-text"><i className="fas fa-at"></i> Email:</label>
                         <input type="email" className="form-control text-center signup-text"
                             name="email"
-                            value={userData.email}
+                            value={userData.email || ""}
                             onChange={e => handleUpdate(e)}
                         />
                     </div>
@@ -88,10 +88,10 @@ function Signin() {
             <div className="row justify-content-center mt-2">
                 <div className="col-md-8 col-lg-8 col-sm-10 col-10 text-center">
                     <div className="form-group text-center">
-                        <label htmlFor="" className="signup-text"><i class="fas fa-unlock"></i> Password:</label>
+                        <label htmlFor="" className="signup-text"><i className="fas fa-unlock"></i> Password:</label>
                         <input type="password" className="form-control text-center signup-text"
                             name="password"
-                            value={userData.password}
+                            value={userData.password || ""}
                             onChange={e => handleUpdate(e)}
                         />
                     </div>
@@ -99,7 +99,7 @@ function Signin() {
             </div>
             <div className="row justify-content-center mt-2">
                 <div className="col-md-8 col-lg-8 col-sm-10 col-10 text-center">
-                    <button className="btn btn-save" type="button" onClick={login}><i class="fas fa-sign-in-alt"></i> Sign In</button>
+                    <button className="btn btn-save" type="button" onClick={login}><i className="fas fa-sign-in-alt"></i> Sign In</button>
                 </div>
             </div>
         </section>
