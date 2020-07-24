@@ -1,14 +1,21 @@
 import React, {useState} from 'react';
 import logo from '../images/logo.png'
 
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useHistory} from 'react-router-dom';
+
+import { isLoggedIn, getUserTok, logout } from '../services/auth'
 
 
 function Nav() {
 
+	let history = useHistory();
 	const [toggle, setToggle] =  useState(false);
 
 	const makeToggle = () => setToggle(!toggle);
+
+	const backToHome = () =>{
+		history.push(`/`)
+	}
 
 	return (
 		<header>
@@ -21,7 +28,18 @@ function Nav() {
 				<div className={ toggle ? "collapse navbar-collapse animate fadeInDown show " : "collapse navbar-collapse"} id="nav">
 					<ul className="navbar-nav ml-auto">
 						<NavLink to={'/users'} className="nav-link" activeClassName="active" onClick={() => setToggle(false)}><li className="nav-item "><i class="fas fa-users"></i> Users</li></NavLink>
-						<NavLink to={'/signup'} className="nav-link" activeClassName="active" onClick={() => setToggle(false)}><li className="nav-item "><i class="fas fa-user-plus"></i> Sign Up</li></NavLink>
+						{
+							isLoggedIn() ?
+								<React.Fragment>
+									<NavLink to={`/profile/${getUserTok()}`} className="nav-link" activeClassName="active" onClick={() => setToggle(false)}><li className="nav-item "><i class="fas fa-user"></i> Profile</li></NavLink>
+									<a className="nav-link" activeClassName="active" onClick={() => logout(backToHome)}><li className="nav-item "><i class="fas fa-user-plus"></i> Log Out</li></a>
+								</React.Fragment>
+								:
+								<React.Fragment>
+									<NavLink to={'/signin'} className="nav-link" activeClassName="active" onClick={() => setToggle(false)}><li className="nav-item "><i class="fas fa-sign-in-alt"></i> Sign In</li></NavLink>
+									<NavLink to={'/signup'} className="nav-link" activeClassName="active" onClick={() => setToggle(false)}><li className="nav-item "><i class="fas fa-user-plus"></i> Sign Up</li></NavLink>
+								</React.Fragment>
+						}
 					</ul>
 				</div>
 			</nav>

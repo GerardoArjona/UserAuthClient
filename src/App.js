@@ -8,6 +8,7 @@ import Home from './components/home';
 import List from './components/user/list';
 import Profile from './components/user/profile';
 import Signup from './components/user/signup';
+import Signin from './components/user/signin';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" component={Home} exact/>,
           <Route path="/users" component={List}/>,
           <Route path="/signup" component={Signup}/>,
+          <Route path="/signin" component={Signin}/>,
           <Route path="/profile/:id" component={Profile}/>,
         </Switch>
       </Layout>

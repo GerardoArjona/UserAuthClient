@@ -1,31 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import { getUserTok, isLoggedIn } from '../../services/auth'
 
-import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
-import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
+import ReactNotification, {store} from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
 
 import '../../App.css';
 
 function Profile(props) {
 
+    let history = useHistory();
     const [user, setUser] = useState([]);
 
     useEffect(() => {
-        console.log(props.match.params)
-        const { id } = props.match.params
-        const fetchData = async () => {
-            axios.get(
-                `${process.env.REACT_APP_API_URL}/users/${id}`,
-            ).then( result =>{
-                    console.log(result.data)
-                    setUser(result.data)
+        if(isLoggedIn()){
+            console.log(props.match.params)
+            let tok = getUserTok()
+            const header = {
+                headers:{
+                    Authorization: `Bearer ${tok}` 
                 }
-            ).catch(e => {
-                setUser({})
-            })
-        };
-        fetchData();
+            }
+            const { id } = props.match.params
+            const fetchData = async () => {
+                axios.get(
+                    `${process.env.REACT_APP_API_URL}/users/${id}`, header
+                ).then( result =>{
+                        console.log(result.data)
+                        setUser(result.data)
+                    }
+                ).catch(e => {
+                    setUser({})
+                })
+            };
+            fetchData();
+        }else{
+            history.push(`/users`)
+        }
 	}, []);
 
     return (

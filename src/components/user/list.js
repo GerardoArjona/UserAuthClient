@@ -49,7 +49,7 @@ function List() {
                         </Tbody>
                     </Table>
                     : 
-                        <h1>No hay usuarios</h1>
+                        <h1>No users...</h1>
                 }
         </section>
     );
