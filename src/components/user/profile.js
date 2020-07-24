@@ -200,7 +200,7 @@ function Profile(props) {
                                                 <div className="row justify-content-center mt-2">
                                                     <div className="col-md-8 col-lg-8 col-sm-10 col-10 text-center">
                                                         <div className="form-group text-center">
-                                                            <label htmlFor="" className="signup-text"><i className="fas fa-unlock"></i> Password:</label>
+                                                            <label htmlFor="" className="signup-text"><i className="fas fa-unlock"></i> New Password:</label>
                                                             <input type="password" className="form-control text-center signup-text"
                                                                 name="password"
                                                                 value={user.password || ""}
