@@ -24,7 +24,8 @@ function Signup() {
         setUserData(data)
     }
 
-    const save = () => {
+    const save = (e) => {
+        e.preventDefault()
         console.log("saving")
         console.log(userData)
         axios.post(
@@ -70,47 +71,49 @@ function Signup() {
         <React.Fragment>
             <ReactNotification />
             <section className="container main-section">
-            <div className="row justify-content-center mt-2">
-                <div className="col-md-8 col-lg-8 col-sm-10 col-10 text-center">
-                    <div className="form-group text-center">
-                        <label htmlFor="" className="signup-text"><i className="fas fa-signature"></i> Name:</label>
-                        <input type="text" className="form-control text-center signup-text"
-                            name="name"
-                            value={userData.name || ""}
-                            onChange={e => handleUpdate(e)}
-                        />
+            <form onSubmit={e => save(e)}>
+                <div className="row justify-content-center mt-2">
+                    <div className="col-md-8 col-lg-8 col-sm-10 col-10 text-center">
+                        <div className="form-group text-center">
+                            <label htmlFor="" className="signup-text"><i className="fas fa-signature"></i> Name:</label>
+                            <input type="text" className="form-control text-center signup-text"
+                                name="name"
+                                value={userData.name || ""}
+                                onChange={e => handleUpdate(e)}
+                            />
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className="row justify-content-center mt-2">
-                <div className="col-md-8 col-lg-8 col-sm-10 col-10 text-center">
-                    <div className="form-group text-center">
-                        <label htmlFor="" className="signup-text"><i className="fas fa-at"></i> Email:</label>
-                        <input type="email" className="form-control text-center signup-text"
-                            name="email"
-                            value={userData.email || ""}
-                            onChange={e => handleUpdate(e)}
-                        />
+                <div className="row justify-content-center mt-2">
+                    <div className="col-md-8 col-lg-8 col-sm-10 col-10 text-center">
+                        <div className="form-group text-center">
+                            <label htmlFor="" className="signup-text"><i className="fas fa-at"></i> Email:</label>
+                            <input type="email" className="form-control text-center signup-text"
+                                name="email"
+                                value={userData.email || ""}
+                                onChange={e => handleUpdate(e)}
+                            />
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className="row justify-content-center mt-2">
-                <div className="col-md-8 col-lg-8 col-sm-10 col-10 text-center">
-                    <div className="form-group text-center">
-                        <label htmlFor="" className="signup-text"><i className="fas fa-unlock"></i> Password:</label>
-                        <input type="password" className="form-control text-center signup-text"
-                            name="password"
-                            value={userData.password || ""}
-                            onChange={e => handleUpdate(e)}
-                        />
+                <div className="row justify-content-center mt-2">
+                    <div className="col-md-8 col-lg-8 col-sm-10 col-10 text-center">
+                        <div className="form-group text-center">
+                            <label htmlFor="" className="signup-text"><i className="fas fa-unlock"></i> Password:</label>
+                            <input type="password" className="form-control text-center signup-text"
+                                name="password"
+                                value={userData.password || ""}
+                                onChange={e => handleUpdate(e)}
+                            />
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className="row justify-content-center mt-2">
-                <div className="col-md-8 col-lg-8 col-sm-10 col-10 text-center">
-                    <button className="btn btn-save" type="button" onClick={save}><i className="fas fa-user-plus"></i> Sign Up</button>
+                <div className="row justify-content-center mt-2">
+                    <div className="col-md-8 col-lg-8 col-sm-10 col-10 text-center">
+                        <button className="btn btn-save" type="submit" ><i className="fas fa-user-plus"></i> Sign Up</button>
+                    </div>
                 </div>
-            </div>
+            </form>
         </section>
         </React.Fragment>
     );
