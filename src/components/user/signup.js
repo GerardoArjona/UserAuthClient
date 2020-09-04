@@ -110,6 +110,18 @@ function Signup() {
                 </div>
                 <div className="row justify-content-center mt-2">
                     <div className="col-md-8 col-lg-8 col-sm-10 col-10 text-center">
+                        <div className="form-group text-center">
+                            <label htmlFor="" className="signup-text"><i className="fas fa-user"></i> Username:</label>
+                            <input type="text" className="form-control text-center signup-text"
+                                name="username"
+                                value={userData.username || ""}
+                                onChange={e => handleUpdate(e)}
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div className="row justify-content-center mt-2">
+                    <div className="col-md-8 col-lg-8 col-sm-10 col-10 text-center">
                         <button className="btn btn-save" type="submit" ><i className="fas fa-user-plus"></i> Sign Up</button>
                     </div>
                 </div>
