@@ -31,7 +31,7 @@ function Nav() {
 						{
 							isLoggedIn() ?
 								<React.Fragment>
-									<NavLink to={`/profile/${getUser()._id}`} className="nav-link" activeClassName="active" onClick={() => setToggle(false)}><li className="nav-item "><i className="fas fa-user"></i> Profile</li></NavLink>
+									<NavLink to={`/profile/${getUser().username}`} className="nav-link" activeClassName="active" onClick={() => setToggle(false)}><li className="nav-item "><i className="fas fa-user"></i> Profile</li></NavLink>
 									<NavLink to={'/users'} className="nav-link" activeClassName="active" onClick={() => setToggle(false)}><li className="nav-item "><i className="fas fa-users"></i> Users</li></NavLink>
 									<a href="/#" className="nav-link" onClick={() => logout(backToHome)}><li className="nav-item "><i className="fas fa-user-plus"></i> Log Out</li></a>
 								</React.Fragment>

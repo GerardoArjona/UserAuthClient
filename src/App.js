@@ -30,7 +30,7 @@ function App() {
           <Route path="/users" component={List}/>,
           <Route path="/signup" component={Signup}/>,
           <Route path="/signin" component={Signin}/>,
-          <PrivateRoute path="/profile/:id" component={Profile}/>,
+          <PrivateRoute path="/profile/:username" component={Profile}/>,
         </Switch>
       </Layout>
     </Router>

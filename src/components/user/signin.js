@@ -48,7 +48,7 @@ function Signin() {
                 });
                 
                 setTimeout(function(){ 
-                    history.push(`/profile/${getUser()._id}`)
+                    history.push(`/profile/${getUser().username}`)
                 }, 1000); 
                 
             }

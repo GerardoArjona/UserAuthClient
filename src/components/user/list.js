@@ -41,7 +41,7 @@ function List() {
                             {users.map((user) => {
                                 return(
                                     <Tr key={user._id}>
-                                        <Td className="user-cels user-name-cel mobile-user-name"><Link to={`/profile/${user._id}`}><i className="fas fa-user-edit"></i> {user.name}</Link></Td>
+                                        <Td className="user-cels user-name-cel mobile-user-name"><Link to={`/profile/${user.username}`}><i className="fas fa-user-edit"></i> {user.name}</Link></Td>
                                         <Td className="user-cels">{user.email}</Td>
                                     </Tr>
                                 )

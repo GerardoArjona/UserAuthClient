@@ -26,14 +26,14 @@ function Profile(props) {
                 Authorization: `Bearer ${tok}` 
             }
         }
-        const { id } = props.match.params
+        const { username } = props.match.params
         const fetchData = async () => {
             axios.get(
-                `${process.env.REACT_APP_API_URL}/users/${id}`, header
+                `${process.env.REACT_APP_API_URL}/users/byUsername/${username}`, header
             ).then( result =>{
                     console.log(result.data)
                     setUser(result.data)
-                    if(result.data._id === getUser()._id){
+                    if(result.data.username === getUser().username){
                         setIsUser(true)
                     }
                 }
