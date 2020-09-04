@@ -52,8 +52,8 @@ function Signup() {
         ).catch(e => {
             console.log(e)
             store.addNotification({
-                title: "Sorry!",
-                message: "We were not able to register you...",
+                title: "Error!",
+                message: "Email or Username already in use",
                 type: "danger",
                 insert: "top",
                 container: "top-right",
